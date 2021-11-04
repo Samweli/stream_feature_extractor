@@ -1,11 +1,12 @@
 # Adapted from previous .travis.yml file in this repo
-name: Test
+name: Test on Windows
 
 on:
   workflow_dispatch:
   push:
     branches:
       - develop
+      - os_tests
   pull_request:
     types:
       - edited
@@ -23,6 +24,7 @@ env:
 
 jobs:
   test:
+    name: Running on QGIS ${{ matrix.qgis_version_tag }}
     runs-on: windows-latest
 
     strategy:
